@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication3</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/codemirror/lib/codemirror.css" rel="stylesheet" />
+    <script src="~/lib/codemirror/lib/codemirror.js"></script>
+    <script src="~/lib/codemirror/mode/julia/julia.js"></script>
+    <script src="~/lib/codemirror/addon/comment/comment.js"></script>
+    <script src="~/lib/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/codemirror/addon/hint/anyword-hint.js"></script>
+    <script src="~/lib/codemirror/addon/hint/show-hint.js"></script>
+
+    <link href="~/lib/codemirror/theme/dracula.css" rel="stylesheet" />
+
+    <link href="~/lib/codemirror/addon/hint/show-hint.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Index">CodeEditor</a>
+                
+         
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var edit = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            mode: "julia", theme: "dracula", lineNumbers: true
+            
+        });
+        edit.setSize("450", "400")
+
+        document.querySelector("#s").addEventListener("click", function () {
+
+
+            edit.toggleComment2(edit.getCursor(true), edit.getCursor(false));
+          
+              
+                //  edit.toggleComment();
+        })
+        document.querySelector("#pp").addEventListener("click", function () {
+
+            
+            edit.toggleComment();
+        })
+    </script>
+   
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

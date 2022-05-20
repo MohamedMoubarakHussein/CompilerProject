@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Tuple<int, Tuple<string, string>>> 
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        @using (Html.BeginForm("Index2", "Home", FormMethod.Post, new { id = "Form" }))
+        {
+            @Html.TextArea("text", null, new { @id = "editor" });
+
+
+        }
+
+    </div>
+    <div class=" col-5  " style="height:400px;">
+        <div style="height:400px; width:450px;overflow:scroll">
+            <ul>
+                @foreach (var i in Model)
+                {
+                    <li>Line: <span style="color:darkred"> @i.Item1</span>      TokenText:<span style="color:darkred"> @i.Item2.Item1</span>        TokenType:<span style="color:darkred"> @i.Item2.Item2</span></li>
+
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="col-12  mt-lg-2  p-3">
+        <div class="row">
+
+            <form method="post" asp-controller="Home" asp-action="Index3" enctype="multipart/form-data" id="Form2" class="col-3">
+                <input type="file" name="file" />
+
+            </form>
+            <div class="col-1"></div>
+            <a href="#" id="pp" class="btn btn-info col-3 ">Single Line Comment</a>
+            <div class="col-2"></div>
+            <a href="#" id="s" class="btn btn-info col-3 ">Multi Line Comment</a>
+
+        </div>
+        <div class="col-12 border mt-2  p-3">
+            <div class="row">
+
+
+
+                <!-- <a class="navbar-brand font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Index">CodeEditor</a>
+                -->
+                <button href="#" id="ss" type="submit" form="Form" class="btn btn-info col-3 ml-5">Scanner</button>
+
+
+                <div class="col-1"></div>
+             
+                <button id="p" type="submit" form="Form2" class="btn btn-info  col-3 ">Scanner Browser</button>
+                <div class="col-1"></div>
+                <a href="#" class="btn btn-info col-3 ">Paraser</a>
+
+            </div>
+
+        </div>
+    </div>
