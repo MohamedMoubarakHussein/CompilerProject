@@ -1,6 +1,1 @@
-Category {
-if(5>temp)
-  vjbolpew = cmpoisd+4654
-  End
-}
-  End
+  Using 1.txt

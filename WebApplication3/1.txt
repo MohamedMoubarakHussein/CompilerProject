@@ -1,8 +1,2 @@
 Program 
-Z Category {
- Var = Var + 1;
-if(x+4){
-  	x = x;
-  }
-
-}
+Super = 5+super
