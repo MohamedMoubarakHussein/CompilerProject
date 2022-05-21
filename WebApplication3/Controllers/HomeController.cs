@@ -183,7 +183,7 @@ namespace WebApplication3.Controllers
                 
                
             }
-            retur.Add(Tuple.Create(lineNumber, Tuple.Create("NumberOfError", ErrorCounter.ToString())));
+           
             return retur;
 
         }
@@ -252,7 +252,7 @@ namespace WebApplication3.Controllers
                         }
                         else if (x == '<')
                         {
-                            Debug.WriteLine("First tok");
+                            
                             state = 12;
                         }
                         else if (x == '>')
